@@ -3,7 +3,7 @@
 
 using namespace std;
 
-// Function prototypes
+
 void left(int &humanity);
 void middle(int &humanity);
 void right(int &humanity);
@@ -12,16 +12,16 @@ void underGround(int &humanity);
 
 int main()
 {
-    // Variables declared inside int main()
+    
     string name;
     string surname;
     int age;
     string covenName;
     int option;
-    int humanity = 5; // Starting humanity progress
-    int lives = 5;     // Starting with 5 lives
+    int humanity = 5; 
+    int lives = 5;     
 
-    // Arrays for menu options and history tracking
+    
     string menuOptions[6] = {
         "Enter 1 to show mercy to a mortal enemy",
         "Enter 2 to drink blood from an innocent",
@@ -53,13 +53,13 @@ int main()
     cout << "YOU ARE A VAMPIRE ON A QUEST TO BECOME HUMAN. CHOOSE WISELY TO REGAIN YOUR HUMANITY, OR LOSE LIVES AND PERISH!" << endl;
     cout << " " << endl;
 
-    // Main Game Loop
+    
     do
     {
-        // Check if humanity dropped too low (failure)
+        
         if (humanity <= 0)
         {
-            lives--; // Lose a life
+            lives--; 
             cout << endl;
             cout << "________________________________________________________" << endl;
             cout << "YOUR HUMANITY FADED AWAY! YOU STAYED A VAMPIRE AND LOST A LIFE." << endl;
@@ -69,17 +69,17 @@ int main()
 
             if (lives > 0)
             {
-                humanity = 5; // Reset progress for the next life
+                humanity = 5; 
                 cout << "A dark power revives you for another attempt. Try again!" << endl;
                 cout << endl;
             }
             else
             {
-                break; // Game over if all 5 lives are gone
+                break; 
             }
         }
 
-        // Check if user successfully reached full humanity (10 points)
+        
         if (humanity >= 10)
         {
             cout << endl;
@@ -97,7 +97,7 @@ int main()
         cout << "________________________________________________________" << endl;
         cout << " " << endl;
 
-        // Loop to display menu options from array
+        
         for (int i = 0; i < 6; i++)
         {
             cout << menuOptions[i] << endl;
@@ -108,23 +108,23 @@ int main()
         switch(option)
         {
             case 1:
-                left(humanity); // Correct choice (+ humanity)
+                left(humanity); 
                 if (moveCount < 50) actionHistory[moveCount++] = "Showed mercy (+1 humanity)";
                 break;
             case 2:
-                middle(humanity); // Incorrect choice (- humanity)
+                middle(humanity); 
                 if (moveCount < 50) actionHistory[moveCount++] = "Drank blood (-2 humanity)";
                 break;
             case 3:
-                right(humanity); // Correct choice (+ humanity)
+                right(humanity); 
                 if (moveCount < 50) actionHistory[moveCount++] = "Helped someone (+1 humanity)";
                 break;
             case 4:
-                upperRoom(humanity); // Incorrect choice (- humanity)
+                upperRoom(humanity); 
                 if (moveCount < 50) actionHistory[moveCount++] = "Gave in to bloodlust (-2 humanity)";
                 break;
             case 5:
-                underGround(humanity); // Correct choice (+ humanity)
+                underGround(humanity); 
                 if (moveCount < 50) actionHistory[moveCount++] = "Faced the sunlight (+1 humanity)";
                 break;
             case 6:
@@ -137,7 +137,7 @@ int main()
 
     } while (option != 6 && lives > 0 && humanity < 10);
 
-    // Final Summary
+    
     cout << endl;
     cout << "________________________________________________________" << endl;
     if (lives <= 0)
@@ -146,7 +146,7 @@ int main()
     }
     else if (humanity >= 10)
     {
-        cout << "VICTORY: YOU COMPLETED THE REDEMPTION!" << endl;
+        cout << "VICTORY: YOU COMPLETED THE REDEMPTION,YOU ARE 100% HUMAN!" << endl;
     }
 
     cout << "YOUR JOURNEY HISTORY:" << endl;
@@ -159,7 +159,7 @@ int main()
     return 0;
 }
 
-// Function Definitions for Correct & Incorrect Choices
+
 void left(int &humanity)
 {
     cout << "CORRECT CHOICE: YOU SHOWED MERCY AND FORGAVE YOUR ENEMY." << endl;
